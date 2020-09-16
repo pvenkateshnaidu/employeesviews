@@ -1,0 +1,1 @@
+<script src="{{ asset('dashboard/js/jquery.validate.min.js') }}"></script>

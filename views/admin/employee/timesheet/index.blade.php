@@ -24,10 +24,11 @@
                 <tr>
                     <th>S.No</th>
                     <th>Employee Name</th>
-                    <th>From date</th>
-                    <th>To date</th>
+                    <th>Date</th>                  
                     <th>Duration (Hours)</th>
                     <th>Assignment</th>
+                    <th>Service Code</th>
+                    <th>Note</th>
                     <th>Document</th>
                     <th>Created At</th>  
                     <th>Action</th>                
@@ -44,10 +45,11 @@
                 <tr>
                     <td>{{ $i }}</td>
                     <td>{{ $timesheet->user_details->name }}</td>
-                    <td>{{  \Carbon\Carbon::parse($timesheet->fromDate)->format('d F Y') }}</td>
-                    <td>{{  \Carbon\Carbon::parse($timesheet->toDate)->format('d F Y') }}</td>
+                    <td>{{  \Carbon\Carbon::parse($timesheet->fromDate)->format('d F Y') }}</td>                   
                     <td>{{ $timesheet->duration }}</td>
-                    <td>{{ $timesheet->assignment }}</td>          
+                    <td>{{ $timesheet->assignment }}</td>    
+                    <td>{{ $timesheet->serviceCode }}</td>   
+                    <td>{{ $timesheet->note }}</td>     
                     <td>   @if($timesheet->document)
                         <a href="{{route('timesheetfile', $timesheet->document)}}"><img src="{{ asset('dashboard/img/word.png') }}" /></a>   
                         @endif</td>             

@@ -188,67 +188,10 @@
        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>       
         <script type="text/javascript" src="{{ asset('dashboard/js/jquery-ui.js') }}"></script>   
           <script src="{{ asset('dashboard/js/select2.min.js') }}"></script>
-          <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+       
           <script>
               /*digital clocl */
-              function currentTime() {
-                var currenttime = '{{$tz_time}}';
-                offset = -4.0
-clientDate = new Date();
-utc = clientDate.getTime() + (clientDate.getTimezoneOffset() * 60000);
-
-date = new Date(utc + (3600000*offset));
-  //var date = new Date(); /* creating object of Date class */
-  var hour = date.getHours();
-  var min = date.getMinutes();
-  var sec = date.getSeconds();
-  var midday = "AM";
-  midday = (hour >= 12) ? "PM" : "AM"; /* assigning AM/PM */
-  hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour); /* assigning hour in 12-hour format */
-  hour = changeTime(hour);
-  min = changeTime(min);
-  sec = changeTime(sec);
-  document.getElementById("digit_clock_time").innerText = hour + " : " + min + " : " + sec + " " + midday; /* adding time to the div */
- 
-  var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
- 
-  var curWeekDay = days[date.getDay()]; // get day
-  var curDay = date.getDate();  // get date
-  var curMonth = months[date.getMonth()]; // get month
-  var curYear = date.getFullYear(); // get year
-  var date = curWeekDay+", "+curDay+" "+curMonth+" "+curYear; // get full date
-  document.getElementById("digit_clock_date").innerHTML = date;
- 
-  var t = setTimeout(currentTime, 1000); /* setting timer */
-}
- 
-function changeTime(k) { /* appending 0 before time elements if less than 10 */
-  if (k < 10) {
-    return "0" + k;
-  }
-  else {
-    return k;
-  }
-}
- 
-currentTime();
-              /*end */
-               $('.form_datetime').datetimepicker({
-        //language:  'fr',
-        format : 'yyyy-mm-dd hh:ii:ss',
-        weekStart: 1,
-        todayBtn:  1,
-		autoclose: 1,
-		todayHighlight: 1,
-		startView: 2,
-		forceParse: 0,
-        showMeridian: 1
-    });
-            
-               
-            
+             
 
                $('.select2').select2();
                $(function () {
@@ -257,8 +200,8 @@ currentTime();
                                 $('.popover-dismiss').popover({
                     trigger: 'focus'
                     })
-//chart
 
+        
           </script>
         <!-- Custom scripts for all pages-->
         @yield('jQeryValidationJs')

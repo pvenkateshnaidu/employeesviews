@@ -5,7 +5,7 @@
     <div class="card">               
         <div class="card-body">
             <h2>Add User</h2>
-            <form action="{{ url('admin/user/') }}" id="addUser" method="post" >
+            <form action="{{ url('user/') }}" id="addUser" method="post" >
                 <div class="row">
                     {{ csrf_field() }}
                     <div class="col-lg-6">

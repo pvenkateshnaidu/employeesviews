@@ -5,7 +5,7 @@
     <div class="card">               
         <div class="card-body">
             <h2>Add User</h2>
-            <form action="{{ url('admin/user/'.$user->id) }}" id="addUser" method="post" >
+            <form action="{{ url('user/'.$user->id) }}" id="addUser" method="post" >
                 <div class="row">
                     {{ method_field('PUT') }}
                     {{ csrf_field() }}

@@ -13,7 +13,7 @@
             <h2>Users list</h2>
         </div>
         <div class="col-lg-6">
-            <a class="btn btn-primary float-right" href="{{url('admin/user/create')}}"><i class="fa fa-user-plus"></i> Add User</a>
+            <a class="btn btn-primary float-right" href="{{url('user/create')}}"><i class="fa fa-user-plus"></i> Add User</a>
         </div>
     </div>       
     <!-- <form  action="{{ url('admin/user/') }}" method="get" autocomplete="off">
@@ -82,7 +82,7 @@
                     <td>
                         @if( $user->user_status === 'A' )
                         <a href="{{ $user->id.'/B' }}" class="btn btn-circle btn-sm btn-danger updateStatus" data-toggle="tooltip" title="Block User"><i class="fa fa-thumbs-down"></i></a>
-                        <a href="{{\url('admin/user/'.$user->id.'/edit')}}" class="btn btn-circle btn-sm btn-success" data-toggle="tooltip" title="Edit User Info"><i class="fa fa-magic"></i></a>
+                        <a href="{{\url('user/'.$user->id.'/edit')}}" class="btn btn-circle btn-sm btn-success" data-toggle="tooltip" title="Edit User Info"><i class="fa fa-magic"></i></a>
                         @else
                         <a href="{{ $user->id.'/A' }}" class="btn btn-circle btn-sm btn-primary updateStatus" data-toggle="tooltip" title="Activate User"><i class="fa fa-thumbs-up"></i></a>
                         @endif

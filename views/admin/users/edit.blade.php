@@ -44,7 +44,7 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <p>&nbsp;</p>
-                            <button type="submit" class="btn btn-primary float-right" id="submitForm"><i class="fa fa-magic"></i> Edit User</button>
+                            <button type="submit" class="btn btn-primary float-right" id="submitForm"><i class="fa fa-magic"></i> Save User</button>
                         </div>
                     </div>
                 </div>

@@ -37,7 +37,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="technology">Assign Technology:</label>
-                            <input type="text" class="form-control {{ $errors->has('technology') ? ' is-invalid' : '' }}" id="technology" placeholder="Enter Technology" name="technology"  value="{{$user->technology}}">
+                            <input type="text" class="form-control {{ $errors->has('technology') ? ' is-invalid' : '' }}" id="technology" placeholder="Enter Technology" name="technology"  value="{{$user->technologyAssign}}">
                             <div class="invalid-feedback">{{ $errors->first('technology')  }}</div>
                         </div>
                     </div>

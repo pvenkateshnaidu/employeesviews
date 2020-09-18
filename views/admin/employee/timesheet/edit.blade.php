@@ -28,12 +28,9 @@ $servicecodes =  config('wallet.servicecodes');
                     <div class="col-lg-4">
                         <div class="form-group">
                             <label for="assignment">Assignment:</label>
-                            <select class="form-control {{ $errors->has('assignment') ? ' is-invalid' : '' }}" required name="assignment" id="assignment">
-                                @foreach ($assignments as $key => $value)
-                                <option value="{{$key}}" {{($timesheet->assignment == $key) ? 'selected' : '' }}>{{$value}}</option>
-                                @endforeach
-                            </select>
-                            <div class="invalid-feedback">{{ $errors->first('assignment')  }}</div>
+                            <select class="form-control"  name="assignment" id="assignment" readonly>
+                              <option value="{{\Auth::user()->technologyAssign}}">{{\Auth::user()->technologyAssign}}</option>
+                            </select>                            
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -67,14 +64,7 @@ $servicecodes =  config('wallet.servicecodes');
                             <div class="invalid-feedback">{{ $errors->first('document')  }}</div>
                         </div>
                     </div>
-                    <div class="col-lg-9">
-                        <div class="form-group">
-                            <label for="note">Note:</label>
-                            <textarea class="form-control {{ $errors->has('v') ? ' is-invalid' : '' }}"
-                                id="note" name="note" >{{$timesheet->note}}</textarea>
-                            <div class="invalid-feedback">{{ $errors->first('note')  }}</div>
-                        </div>
-                    </div>
+     
                     <div class="col-lg-12">
                         <div class="form-group">
                             <p>&nbsp;</p>

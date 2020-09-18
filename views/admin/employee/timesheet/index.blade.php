@@ -27,8 +27,7 @@
                     <th>Date</th>                  
                     <th>Duration (Hours)</th>
                     <th>Assignment</th>
-                    <th>Service Code</th>
-                    <th>Note</th>
+                    <th>Service Code</th>          
                     <th>Document</th>
                     <th>Created At</th>  
                     <th>Action</th>                
@@ -48,8 +47,7 @@
                     <td>{{  \Carbon\Carbon::parse($timesheet->fromDate)->format('d F Y') }}</td>                   
                     <td>{{ $timesheet->duration }}</td>
                     <td>{{ $timesheet->assignment }}</td>    
-                    <td>{{ $timesheet->serviceCode }}</td>   
-                    <td>{{ $timesheet->note }}</td>     
+                    <td>{{ $timesheet->serviceCode }}</td> 
                     <td>   @if($timesheet->document)
                         <a href="{{route('timesheetfile', $timesheet->document)}}"><img src="{{ asset('dashboard/img/word.png') }}" /></a>   
                         @endif</td>             

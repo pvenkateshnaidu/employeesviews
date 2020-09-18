@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="card">               
         <div class="card-body">
-            <h2>Add User</h2>
+            <h2>Update User</h2>
             <form action="{{ url('user/'.$user->id) }}" id="addUser" method="post" >
                 <div class="row">
                     {{ method_field('PUT') }}
@@ -36,8 +36,15 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
+                            <label for="technology">Assign Technology:</label>
+                            <input type="text" class="form-control {{ $errors->has('technology') ? ' is-invalid' : '' }}" id="technology" placeholder="Enter Technology" name="technology"  value="{{$user->technology}}">
+                            <div class="invalid-feedback">{{ $errors->first('technology')  }}</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
                             <label for="password">Password:</label>
-                            <input type="password" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" id="email" placeholder="Enter Password" name="password" required>
+                            <input type="password" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" id="email" placeholder="Enter Password" name="password" >
                             <div class="invalid-feedback">{{ $errors->first('password')  }}</div>
                         </div>
                     </div>

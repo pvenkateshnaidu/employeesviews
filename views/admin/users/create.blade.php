@@ -24,6 +24,13 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
+                            <label for="technology">Assign Technology:</label>
+                            <input type="text" class="form-control {{ $errors->has('technology') ? ' is-invalid' : '' }}" id="technology" placeholder="Enter Technology" name="technology" required value="{{old('technology')}}">
+                            <div class="invalid-feedback">{{ $errors->first('technology')  }}</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
                             <label for="password">Password:</label>
                             <input type="password" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" id="email" placeholder="Enter Password" name="password" required>
                             <div class="invalid-feedback">{{ $errors->first('password')  }}</div>
@@ -60,54 +67,7 @@
 @section('addonJsScript')
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#addUser").validate({
-            rules: {
-                name: {
-                    required: true,
-                    minlength: 4
-                },
-                email: {
-                    required: true,
-                    email: true
-                },
-                password: {
-                    required: true
-                    minlength: 8,
-                },
-                userType: "required"
-            },
-            messages: {
-                name: {
-                    required: "Please enter Name",
-                    minlength: "Name must consist of at least 4 characters"
-                },
-                email: {
-                    required: "Please enter Email Address",
-                    email: "Please enter valid Email Address"
-                },
-                password: {
-                    required: "Please enter Password",
-                    minlength: "Password must consist of at least 8 Charecters"
-                },
-                userType: "Please chose user type"
-            },
-            errorElement: "em",
-            errorPlacement: function (error, element) {
-                // Add the `invalid-feedback` class to the error element
-                error.addClass("invalid-feedback");
-                if (element.prop("type") === "checkbox") {
-                    error.insertAfter(element.next("label"));
-                } else {
-                    error.insertAfter(element);
-                }
-            },
-            highlight: function (element, errorClass, validClass) {
-                $(element).addClass("is-invalid").removeClass("is-valid");
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).addClass("is-valid").removeClass("is-invalid");
-            }
-        });
+        $("#addUser").validate();
     });
 </script>
 @endsection

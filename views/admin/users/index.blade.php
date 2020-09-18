@@ -58,6 +58,7 @@
                     <th>S.No</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Technology</th>
                     <th>User Type</th>
                     <th>Status</th>
                     <th>Created At</th>
@@ -76,6 +77,7 @@
                     <td>{{ $i }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
+                    <td>{{ $user->technologyAssign}}</td>
                     <td>{{ $userType[$user->user_type] }}</td>
                     <td>{{ $status[$user->user_status] }}</td>
                     <td>{{ \Carbon\Carbon::parse($user->created_at)->format('d F Y H:i:s') }}</td>

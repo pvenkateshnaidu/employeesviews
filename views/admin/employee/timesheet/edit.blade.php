@@ -29,7 +29,7 @@ $servicecodes =  config('wallet.servicecodes');
                         <div class="form-group">
                             <label for="assignment">Assignment:</label>
                             <select class="form-control"  name="assignment" id="assignment" readonly>
-                              <option value="{{\Auth::user()->technologyAssign}}">{{\Auth::user()->technologyAssign}}</option>
+                              <option value="{{$timesheet->assignment}}">{{$timesheet->assignment}}</option>
                             </select>                            
                         </div>
                     </div>

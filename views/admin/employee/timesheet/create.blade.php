@@ -73,7 +73,67 @@ $servicecodes =  config('wallet.servicecodes');
         </div>
     </div>
 </div>
+<div class="container-fluid">
+    @if (session('message'))
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Success!</strong> {{ session('message') }}
+    </div>    
+    @endif
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>TIme Sheets</h2>
+        </div>
+        
+    </div>       
+    
 
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Employee Name</th>
+                    <th>Date</th>                  
+                    <th>Duration (Hours)</th>
+                    <th>Assignment</th>
+                    <th>Service Code</th>          
+                    <th>Document</th>
+                    <th>Created At</th>  
+                    <th>Action</th>                
+                </tr>
+            </thead>
+         
+            <tbody>
+                @php
+                $i  = 1;
+                $timesheetType = config('wallet.timesheetTypes');
+                $status = config('wallet.timesheetstatus');
+                @endphp
+                @foreach ($timesheets as $timesheet)
+                <tr>
+                    <td>{{ $i }}</td>
+                    <td>{{ $timesheet->user_details->name }}</td>
+                    <td>{{  \Carbon\Carbon::parse($timesheet->fromDate)->format('d F Y') }}</td>                   
+                    <td>{{ $timesheet->duration }}</td>
+                    <td>{{ $timesheet->assignment }}</td>    
+                    <td>{{ $timesheet->serviceCode }}</td> 
+                    <td>   @if($timesheet->document)
+                        <a href="{{route('timesheetfile', $timesheet->document)}}"><img src="{{ asset('dashboard/img/word.png') }}" /></a>   
+                        @endif</td>             
+                    <td>{{ \Carbon\Carbon::parse($timesheet->created_at)->format('d F Y H:i:s') }}</td>
+                    <td><a href="{{\url('timesheet/'.$timesheet->timeSheetId.'/edit')}}"
+                        class="btn btn-circle btn-sm btn-primary" data-toggle="tooltip"
+                        title="Edit Timesheet "><i class="fa fa-magic"></i></a></td>
+                    
+                </tr>
+                @php $i++ @endphp
+                @endforeach
+            </tbody>
+        </table>
+     
+    </div>
+</div>
 @endsection
 
 @section('jQeryValidationJs')
